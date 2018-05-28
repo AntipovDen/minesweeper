@@ -8,10 +8,10 @@ mines = 99
 class Field:
     def __init__(self, first_step):
         self.field = [[0] * m for _ in range(n)]
-        mines_positions = choice(m * n - 1, mines)
+        mines_positions = list(range(88)) + [5 * 31 + 12, 8 * 31 + 13 - 1, 9 * 31 + 13 - 1, 4 * 31 + 15, 10 * 31 + 16 - 1, 4 * 31 + 18, 5 * 31 + 18, 7 * 31 + 18 - 1, 8 * 31 + 18 - 1, 10 * 31 + 18 - 1, 4 * 31 + 17]#choice(m * n - 1, mines)
         for pos in mines_positions:
             # try:
-            self.field[(pos + (pos > first_step)) // m][(pos + pos + (pos > first_step)) % m] = -1
+            self.field[(pos + (pos > first_step)) // m][(pos + (pos > first_step)) % m] = -1
             # except IndexError:
             #     print(pos)
             #     print((pos + (pos > first_step)) // n, (pos + (pos > first_step)) % m)
@@ -33,5 +33,5 @@ class Field:
         return self.field[y][x]
 
 #
-# field = Field()
+# field = Field(7 * 31 + 15)
 # field.print()
